@@ -1,0 +1,27 @@
+// Define variables
+$navbar-bg: #f8f9fa;
+$navbar-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+$brand-font-size: 1.5rem;
+
+// Mixin for hover effects
+@mixin hover-effect($color) {
+  &:hover {
+    color: $color;
+    text-decoration: none;
+  }
+}
+
+
+.navbar {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+  }
+  
+  .navbar-brand img {
+    max-height: 50px; /* Adjust the logo size */
+  }
+  
+  .form-control {
+    width: 200px; /* Adjust the search input width */
+  }
+  
