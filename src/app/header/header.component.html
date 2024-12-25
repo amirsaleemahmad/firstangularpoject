@@ -1,0 +1,81 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light mt-3">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="https://via.placeholder.com/150x50" alt="Logo" class="d-inline-block align-text-top">
+      </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Features</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Pricing</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+          <form class="d-flex" (ngSubmit)="onSearch()">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"  
+          [(ngModel)]="searchQuery" 
+          name="searchQuery" 
+          required>
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  
+
+
+  <div *ngIf="searchResults.length > 0" class="search-results mt-3">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Age</th>
+          <th>Gender</th>
+          <th>Blood Group</th>
+          <th>Phone</th>
+          <th>University</th>
+          <th>Company</th>
+          <th>Address</th>
+          <th>Role</th>
+          <th>Crypto</th>
+          <th>Bank Card</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of searchResults">
+          <td>{{ user.id }}</td>
+          <td>{{ user.firstName }}</td>
+          <td>{{ user.lastName }}</td>
+          <td>{{ user.email }}</td>
+          <td>{{ user.age }}</td>
+          <td>{{ user.gender }}</td>
+          <td>{{ user.bloodGroup }}</td>
+          <td>{{ user.phone }}</td>
+          <td>{{ user.university }}</td>
+          <td>{{ user.company.name }}</td>
+          <td>{{ user.address?.address }}, {{ user.address?.city }}, {{ user.address?.state }}</td>
+          <td>{{ user.role }}</td>
+          <td>{{ user.crypto.coin }}: {{ user.crypto.wallet }}</td>
+          <td>{{ user.bank.cardType }} - {{ user.bank.cardNumber }}</td>
+          <td>
+            <button class="btn btn-info">Details</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
